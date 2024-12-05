@@ -1,4 +1,4 @@
-
+from waitress import serve
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS  
 from utilities.chatbot import get_response  
@@ -30,4 +30,4 @@ def misinfo_chatbot():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    serve(app,host="0.0.0.0", port=5000)
