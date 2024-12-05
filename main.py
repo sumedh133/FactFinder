@@ -1,13 +1,13 @@
 from flask import Flask, request, jsonify, render_template
-from flask_cors import CORS  
+# from flask_cors import CORS  
 from utilities.chatbot import get_response  
 
 app = Flask(__name__)
 
-CORS(app)
+# CORS(app)
 
 @app.route('/')
-def test_page():
+def index():
     return render_template('index.html')
 
 @app.route('/misinfo_chatbot', methods=['POST'])
