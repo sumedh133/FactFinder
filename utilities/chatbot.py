@@ -1,16 +1,13 @@
-# chatbot.py
 import os
 from langchain.agents import initialize_agent
 from langchain_community.agent_toolkits.load_tools import load_tools
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
 
-# Load environment variables
 load_dotenv()
 GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
 SERPAPI_API_KEY = os.environ.get('SERPAPI_API_KEY')
 
-# Initialize the LLM and agent
 llm = ChatGoogleGenerativeAI(
     model="gemini-1.5-pro",
     temperature=0,

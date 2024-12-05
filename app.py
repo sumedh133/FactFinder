@@ -1,11 +1,15 @@
-# app.py
-from flask import Flask, request, jsonify
+
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS  
 from utilities.chatbot import get_response  
 
 app = Flask(__name__)
 
 CORS(app)
+
+@app.route('/')
+def test_page():
+    return render_template('index.html')
 
 @app.route('/misinfo_chatbot', methods=['POST'])
 def misinfo_chatbot():
@@ -26,4 +30,4 @@ def misinfo_chatbot():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001, host='0.0.0.0')
+    app.run(debug=True)
